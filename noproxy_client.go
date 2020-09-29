@@ -48,6 +48,7 @@ func (c *NoProxyClient) Request(ctx context.Context, method string, path string,
 	r.WithContext(ctx)
 	r.Header.Set("Authorization", "Bearer "+c.ApiKey)
 	r.Header.Set("Content-Type", "application/json")
+	r.Header.Set("User-Agent", "systemz-ok-sdk-v0")
 	res, _ := c.HttpClient.Do(r)
 	if err != nil {
 		return nil, nil, err
